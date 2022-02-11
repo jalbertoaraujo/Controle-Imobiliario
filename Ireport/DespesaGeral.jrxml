@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="DespesaGeral" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="51e0ae40-86dc-4368-b922-b53d81a93b88">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from despesa]]>
+	</queryString>
+	<field name="id_despesa" class="java.lang.Integer"/>
+	<field name="periodo" class="java.lang.String"/>
+	<field name="unidade" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="valor" class="java.math.BigDecimal"/>
+	<field name="obs_despesa" class="java.lang.String"/>
+	<field name="empreendimento" class="java.lang.String"/>
+	<field name="competencia" class="java.lang.String"/>
+	<field name="datadespesa" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<staticText>
+				<reportElement x="5" y="17" width="489" height="53" uuid="db5302bf-3de2-4a27-a86c-87a67915412b"/>
+				<textElement>
+					<font fontName="Tahoma" size="40"/>
+				</textElement>
+				<text><![CDATA[CONTROLE DE IMÓVEIS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="468" y="70" width="334" height="31" uuid="97ad95d3-4db7-403e-b45b-22e3e0d846c0"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[TOTAL DESPESAS CADASTRADAS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="43" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="6" width="802" height="1" uuid="730fef1f-92a7-4f9a-bfe7-c4d4256eb99e"/>
+			</line>
+			<staticText>
+				<reportElement x="337" y="15" width="101" height="20" uuid="f0c41558-fc1e-4b5e-bbf2-1337d0cf9072"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIDADE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="494" y="14" width="137" height="20" uuid="7a856c00-5b9c-4005-8518-1ee83341a64e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIÇÃO DESPESA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="695" y="14" width="101" height="20" uuid="85e911c7-0d9f-43a5-84e2-7b72a4d9b896"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[VALOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="15" width="110" height="20" uuid="a304f39d-151a-4bf9-a75d-1b27a42d240a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[EMPREENDIMENTO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="38" width="802" height="1" uuid="69be59c1-42e6-474a-9075-7cc267c53757"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement x="332" y="6" width="150" height="20" uuid="9ef830c6-242a-4514-b771-22f15a9147b1"/>
+				<textFieldExpression><![CDATA[$F{unidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="492" y="6" width="186" height="20" uuid="e3ec78e9-9639-4add-9a3c-d5c1c5734d5e"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="695" y="6" width="100" height="20" uuid="d70e9a68-01fb-4aab-856e-a54d6d592989"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="6" width="314" height="20" uuid="eb4f8feb-1401-4e32-9a25-0c562dfb0aa0"/>
+				<textFieldExpression><![CDATA[$F{empreendimento}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="678" y="6" width="80" height="20" uuid="842c0bc9-ba9f-44d4-9142-f018a8848f5f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="758" y="6" width="40" height="20" uuid="573ffd2e-11be-4a7b-ad61-212ea0fb6ce9"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

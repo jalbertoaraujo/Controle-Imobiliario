@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReceitaGeral" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="36b6eb98-5213-4549-a12a-2554c5419ce9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from receita]]>
+	</queryString>
+	<field name="id_receita" class="java.lang.Integer"/>
+	<field name="periodo" class="java.lang.String"/>
+	<field name="unidade" class="java.lang.String"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="valor" class="java.math.BigDecimal"/>
+	<field name="obs_receita" class="java.lang.String"/>
+	<field name="empreendimento" class="java.lang.String"/>
+	<field name="competencia" class="java.lang.String"/>
+	<field name="datareceita" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="100" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="19" width="489" height="53" uuid="67d93164-7cc4-4b7f-8646-89161e123d2a"/>
+				<textElement>
+					<font fontName="Tahoma" size="40"/>
+				</textElement>
+				<text><![CDATA[CONTROLE DE IMÓVEIS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="473" y="65" width="327" height="31" uuid="132829ed-5948-4a18-8760-6ea90e729850"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[TOTAL RECEITAS CADASTRADAS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="5" y="13" width="111" height="20" uuid="03e86253-49d7-43c7-a0ad-b9d083174034"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[EMPREENDIMENTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="296" y="13" width="68" height="20" uuid="88febb85-fe5a-4325-a4e5-5e64a177291a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIDADE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="463" y="13" width="121" height="20" uuid="c8cd500d-a7dd-4b36-93d2-716c42041a9a"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIÇÃO RECEITA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="700" y="13" width="45" height="20" uuid="38e7064c-fe8d-47e7-9083-7088fa6c6a88"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[VALOR]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="4" width="800" height="1" uuid="627d368c-c03c-43f1-900f-6be0ae364960"/>
+			</line>
+			<line>
+				<reportElement x="0" y="36" width="802" height="1" uuid="61764b0b-0703-4787-9743-03165a3f4cc7"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="3" y="4" width="249" height="20" uuid="8acb5903-be19-43f3-8232-015a77ef0a8b"/>
+				<textFieldExpression><![CDATA[$F{empreendimento}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="263" y="7" width="167" height="20" uuid="6d1ff7b4-d769-4a43-929c-ae0435e0a449"/>
+				<textFieldExpression><![CDATA[$F{unidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="452" y="7" width="213" height="20" uuid="da272e95-321b-4701-b9d2-4a92e5808ee6"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="700" y="4" width="100" height="20" uuid="b06b4d4d-0895-4d9a-bfdd-37f91f8c36a2"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="33" splitType="Stretch">
+			<textField>
+				<reportElement x="680" y="8" width="80" height="20" uuid="ac9d7875-fc7a-47e4-91f6-e7c211f84eb9"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="760" y="8" width="40" height="20" uuid="032640d0-c524-418b-9dad-7ecc005a1a81"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
